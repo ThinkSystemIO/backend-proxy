@@ -10,7 +10,7 @@ ENV GO111MODULE=on \
     CGO_ENABLED=0 \
     GOOS=linux \
     GOARCH=amd64 \
-    GOPRIVATE=github.com/adamavix
+    GOPRIVATE=github.com/thinksystemio/package
 
 # Move to working directory /build
 WORKDIR /build

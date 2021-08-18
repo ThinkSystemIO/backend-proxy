@@ -1,4 +1,4 @@
-github.com/adamavix/thinksystem/package/response v0.0.0-20210529195042-bd95486be9dc h1:Fe9GzZZzQbKErCmt5rnqZuy3kvONnkSX3Nz/2pjEDk4=
-github.com/adamavix/thinksystem/package/response v0.0.0-20210529195042-bd95486be9dc/go.mod h1:Xt5qGV6l1EnMqaJJ8EHGf0dNCEFUDAhePwzlzurJs9w=
 github.com/go-chi/chi/v5 v5.0.3 h1:khYQBdPivkYG1s1TAzDQG1f6eX4kD2TItYVZexL5rS4=
 github.com/go-chi/chi/v5 v5.0.3/go.mod h1:DslCQbL2OYiznFReuXYUmQ2hGd1aDpCnlMNITLSKoi8=
+github.com/thinksystemio/package/response v0.0.0-20210818045430-eceb5266c19f h1:ErQlNp5z74Y9SBUAW6cUsUiHd+w1KgPIxL1uW6CQh/c=
+github.com/thinksystemio/package/response v0.0.0-20210818045430-eceb5266c19f/go.mod h1:NGBXtFjnMGRWojtZS6v3D0OmZ7KmWvaXrXdckLB4A4U=

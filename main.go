@@ -6,9 +6,9 @@ import (
 	"net/http"
 	"strings"
 
-	"github.com/adamavix/thinksystem/package/response"
 	"github.com/go-chi/chi/v5"
 	"github.com/go-chi/chi/v5/middleware"
+	"github.com/thinksystemio/package/response"
 )
 
 func main() {
