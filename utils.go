@@ -9,7 +9,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/thinksystemio/package/response"
+	"github.com/thinksystemio/package-response"
 )
 
 type key int
