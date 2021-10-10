@@ -41,8 +41,7 @@ func main() {
 
 // Echo allows pinging of this service
 func Echo(w http.ResponseWriter, r *http.Request) {
-	appContext := GetAppContext(r)
-	appContext.Res.SendDataWithStatusCode(w, "echo", http.StatusOK)
+	w.WriteHeader(http.StatusOK)
 }
 
 // NotFound redirects to the not found page
