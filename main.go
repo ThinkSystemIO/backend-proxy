@@ -15,8 +15,8 @@ func main() {
 	r := chi.NewRouter()
 	r.Use(middleware.Logger)
 
+	r.Get("/", Echo)
 	r.Get("/*", NotFound)
-	r.Get("/echo", Echo)
 
 	// Loading
 	r.Get("/loading", Loading)
