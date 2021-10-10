@@ -2,7 +2,7 @@ package main
 
 import (
 	"context"
-	"fmt"
+	"errors"
 	"net/http"
 	"strings"
 
@@ -60,9 +60,17 @@ func Middleware(next http.Handler) http.Handler {
 			Res:      response.CreateResponse(),
 		}
 
-		if ok := VerifyInstance(appContext); !ok {
-			target := fmt.Sprintf("http://%s/%s", r.Host, appContext.Instance)
-			http.Redirect(w, r, target, http.StatusTemporaryRedirect)
+		ok := VerifyInstance(appContext)
+
+		if !ok {
+			deployed := DeployInstance(appContext)
+			if !deployed {
+				appContext.Res.SendErrorWithStatusCode(
+					w,
+					errors.New("failed to deploy instance"),
+					http.StatusInternalServerError,
+				)
+			}
 			return
 		}
 

@@ -113,21 +113,26 @@ func GetAppContext(r *http.Request) *AppContext {
 // it will create one with all the deployments.
 func VerifyInstance(appContext *AppContext) bool {
 	_, ok := registry[appContext.Instance]
-	if !ok {
-		registry[appContext.Instance] = struct{}{}
-		http.Get(DeployInstance(appContext))
-	}
 	return ok
 }
 
 // DeployInstance sends a request to the orchestration
 // server and tells it to create a new instance with
 // all of the necessary containers.
-func DeployInstance(appContext *AppContext) string {
-	return fmt.Sprintf(
+func DeployInstance(appContext *AppContext) bool {
+	url := fmt.Sprintf(
 		"http://service-backend-orchestration:80/%s",
 		appContext.Instance,
 	)
+
+	res, _ := http.Get(url)
+
+	if res.StatusCode == http.StatusOK {
+		registry[appContext.Instance] = struct{}{}
+		return true
+	}
+
+	return false
 }
 
 func LoadingAppURL(appContext *AppContext) (*url.URL, error) {
