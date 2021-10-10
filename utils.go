@@ -154,7 +154,7 @@ func FrontendAppURL(appContext *AppContext) (*url.URL, error) {
 
 func FrontendDeployURL(appContext *AppContext) string {
 	URL := fmt.Sprintf(
-		"http://service-backend-orchestration:80/%s/%s/frontend",
+		"http://service-backend-orchestration:80/%s/frontend-%s",
 		appContext.Instance,
 		appContext.App,
 	)
@@ -163,7 +163,7 @@ func FrontendDeployURL(appContext *AppContext) string {
 
 func BackendAppURL(appContext *AppContext) (*url.URL, error) {
 	URL := fmt.Sprintf(
-		"http://%s-service-backend-%s:81",
+		"http://%s-service-backend-%s:80",
 		appContext.Instance,
 		appContext.App,
 	)
@@ -172,7 +172,7 @@ func BackendAppURL(appContext *AppContext) (*url.URL, error) {
 
 func BackendDeployURL(appContext *AppContext) string {
 	URL := fmt.Sprintf(
-		"http://service-backend-orchestration:80/%s/%s/backend",
+		"http://service-backend-orchestration:80/%s/backend-%s",
 		appContext.Instance,
 		appContext.App,
 	)
