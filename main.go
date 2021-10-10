@@ -60,9 +60,7 @@ func Middleware(next http.Handler) http.Handler {
 			Res:      response.CreateResponse(),
 		}
 
-		ok := VerifyInstance(appContext)
-
-		if !ok {
+		if ok := VerifyInstance(appContext); !ok {
 			deployed := DeployInstance(appContext)
 			if !deployed {
 				appContext.Res.SendErrorWithStatusCode(
