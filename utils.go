@@ -121,7 +121,7 @@ func VerifyInstance(appContext *AppContext) bool {
 // all of the necessary containers.
 func DeployInstance(appContext *AppContext) bool {
 	url := fmt.Sprintf(
-		"http://service-backend-orchestration:80/%s",
+		"http://service-backend-orchestration:80/api/%s",
 		appContext.Instance,
 	)
 
@@ -154,7 +154,7 @@ func FrontendAppURL(appContext *AppContext) (*url.URL, error) {
 
 func FrontendDeployURL(appContext *AppContext) string {
 	URL := fmt.Sprintf(
-		"http://service-backend-orchestration:80/%s/frontend-%s",
+		"http://service-backend-orchestration:80/api/%s/frontend-%s",
 		appContext.Instance,
 		appContext.App,
 	)
@@ -172,7 +172,7 @@ func BackendAppURL(appContext *AppContext) (*url.URL, error) {
 
 func BackendDeployURL(appContext *AppContext) string {
 	URL := fmt.Sprintf(
-		"http://service-backend-orchestration:80/%s/backend-%s",
+		"http://service-backend-orchestration:80/api/%s/backend-%s",
 		appContext.Instance,
 		appContext.App,
 	)
