@@ -113,8 +113,6 @@ func GetAppContext(r *http.Request) *AppContext {
 // it will create one with all the deployments.
 func VerifyInstance(appContext *AppContext) bool {
 	_, ok := registry[appContext.Instance]
-	fmt.Println("verify")
-	fmt.Println(ok)
 	return ok
 }
 
@@ -129,11 +127,8 @@ func DeployInstance(appContext *AppContext) bool {
 
 	res, _ := http.Get(url)
 
-	fmt.Println("add to registry")
-	fmt.Println(appContext.Instance)
 	if res.StatusCode == http.StatusOK {
 		registry[appContext.Instance] = struct{}{}
-		fmt.Println("added to registry" + appContext.Instance)
 		return true
 	}
 
