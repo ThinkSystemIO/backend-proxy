@@ -129,6 +129,8 @@ func DeployInstance(appContext *AppContext) bool {
 
 	res, _ := http.Get(url)
 
+	fmt.Println("add to registry")
+	fmt.Println(appContext.Instance)
 	if res.StatusCode == http.StatusOK {
 		registry[appContext.Instance] = struct{}{}
 		return true
