@@ -3,6 +3,7 @@ package main
 import (
 	"context"
 	"errors"
+	"fmt"
 	"net/http"
 	"strings"
 
@@ -75,6 +76,7 @@ func Middleware(next http.Handler) http.Handler {
 			return
 		}
 
+		fmt.Println("called")
 		ctx := context.WithValue(r.Context(), AppContextKey, appContext)
 		next.ServeHTTP(w, r.WithContext(ctx))
 	})

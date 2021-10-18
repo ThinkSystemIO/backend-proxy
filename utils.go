@@ -113,6 +113,8 @@ func GetAppContext(r *http.Request) *AppContext {
 // it will create one with all the deployments.
 func VerifyInstance(appContext *AppContext) bool {
 	_, ok := registry[appContext.Instance]
+	fmt.Println("verify")
+	fmt.Println(ok)
 	return ok
 }
 
