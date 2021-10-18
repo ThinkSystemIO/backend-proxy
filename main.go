@@ -68,6 +68,7 @@ func Middleware(next http.Handler) http.Handler {
 					errors.New("failed to deploy instance"),
 					http.StatusInternalServerError,
 				)
+				return
 			}
 
 			Loading(w, r)
