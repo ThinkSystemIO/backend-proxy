@@ -69,6 +69,7 @@ func Middleware(next http.Handler) http.Handler {
 					http.StatusInternalServerError,
 				)
 			}
+			Loading(w, r)
 			return
 		}
 
